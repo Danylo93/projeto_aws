@@ -12,11 +12,11 @@ else
   echo "[ERRO] Tenho um problema ao retornar a subnet da zona a. Será se existe uma subnet na zona A?"
 fi
 
-security_group_id=$(aws ec2 describe-security-groups --group-names "bia-dev" --query "SecurityGroups[0].GroupId" --output text 2>/dev/null)
+security_group_id=$(aws ec2 describe-security-groups --group-names "gympass-api" --query "SecurityGroups[0].GroupId" --output text 2>/dev/null)
 if [ $? -eq 0 ]; then
   echo "[OK] Tudo certo com o Security Group"
 else
-  echo "[ERRO] Não achei o security group bia-dev. Ele foi criado?"
+  echo "[ERRO] Não achei o security group gympass-api. Ele foi criado?"
 fi
 
 if aws iam get-role --role-name role-acesso-ssm &>/dev/null; then
